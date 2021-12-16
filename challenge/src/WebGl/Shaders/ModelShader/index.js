@@ -1,6 +1,6 @@
 import GLC from '../../GLCommander'
 import VertexSource from './vertex'
-import FragmentSource from 'fragment'
+import FragmentSource from './fragment'
 import Location from './location'
 import vertex from './vertex'
  

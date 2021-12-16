@@ -1,4 +1,3 @@
-import { flushSync } from "react-dom";
 import GLC from "../../GLCommander";
 
 export default class ModelType {
@@ -12,7 +11,7 @@ export default class ModelType {
   _genVertexBuffer = () => {
     this.vertexBuffer = GLC.createBuffer();
     GLC.bindArrayBuffer(this.vertexBuffer);
-    GLC.addArrayBufferDate(this.vertices);
+    GLC.addArrayBufferData(this.vertices);
     GLC.unbindArrayBuffer();
   };
 
@@ -21,5 +20,11 @@ export default class ModelType {
     GLC.bindElementArrayBuffer(this.indexBuffer);
     GLC.addElementArrayBufferData(this.indices);
     GLC.unbindElementArrayBuffer();
+  };
+
+  use = (shader) => {
+    GLC.bindArrayBuffer(this.vertexBuffer)
+    shader.enablePosition()
+    GLC.bindElementArrayBuffer(this.indexBuffer)
   };
 }
